@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DEXTA NO SE SALVAN | Audio Architect Portfolio</title>
+    <title>DEXTANO | Audio Architect Portfolio</title>
     <!-- FUENTES PREMIUM ESTILO PHARRELL / STREETWEAR -->
     <link rel="preconnect" href="https://googleapis.com">
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
     <link href="https://googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- ICONOS CON CARGA SEGURA -->
+    <!-- ICONOS CON CARGA SEGURA REFORZADA -->
     <link rel="stylesheet" href="https://cloudflare.com" crossorigin="anonymous" />
     
     <style>
@@ -42,37 +42,47 @@
             padding: 0 24px;
         }
 
-        /* --- CABECERA PRINCIPAL CON TU LOGO CENTRADO --- */
+        /* --- CABECERA ESTILO PHARRELL CON TU LOGO CENTRADO --- */
         header {
             text-align: center;
-            padding: 60px 0 20px 0;
+            padding: 50px 0 20px 0;
             position: relative;
             display: flex;
             flex-direction: column;
             align-items: center;
-            border-bottom: 1px solid #e4e4e7;
-            margin-bottom: 30px;
+            border-bottom: 2px solid var(--text-dark);
+            margin-bottom: 40px;
         }
 
-        .logo-image {
-            width: 100%;
-            max-width: 320px;
-            height: auto;
-            object-fit: contain;
-            margin-bottom: 20px;
+        .logo-text-styled {
+            font-family: var(--font-header);
+            font-size: 2.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+            line-height: 1;
+            margin-bottom: 15px;
+            border: 3px solid var(--text-dark);
+            padding: 10px 25px;
+            display: inline-block;
+            background-color: var(--text-dark);
+            color: var(--bg-pure);
+            transform: rotate(-1deg);
+            box-shadow: 4px 4px 0px rgba(0,0,0,0.15);
         }
 
         .social-top-right {
             position: absolute;
-            top: 75px;
-            right: 24px;
+            top: 65px;
+            right: 0;
             display: flex;
             gap: 18px;
+            z-index: 10;
         }
 
         .social-top-right a {
             color: var(--text-dark);
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             text-decoration: none;
             transition: opacity 0.2s, transform 0.2s;
         }
@@ -82,13 +92,13 @@
             transform: translateY(-2px);
         }
 
-        /* --- DISEÑO DEL CONTENEDOR INTERACTIVO --- */
+        /* --- DISTRIBUCIÓN DEL ESPACIO DE TRABAJO --- */
         .workspace-layout {
             display: grid;
             grid-template-columns: 42% 58%;
             gap: 50px;
-            align-items: center;
-            min-height: 65vh;
+            align-items: start;
+            min-height: 60vh;
         }
 
         /* Área Izquierda: Tu Avatar / Ilustración */
@@ -97,7 +107,8 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
+            position: sticky;
+            top: 20px;
         }
 
         .avatar-box {
@@ -108,12 +119,6 @@
             border: 2px dashed var(--text-dark);
             position: relative;
             margin-bottom: 25px;
-        }
-
-        .avatar-box img {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            object-fit: contain;
         }
 
         .listen-tag {
@@ -160,7 +165,7 @@
 
         .cat-btn {
             font-family: var(--font-header);
-            font-size: 0.95rem;
+            font-size: 1rem;
             font-weight: 700;
             background: none;
             border: none;
@@ -189,16 +194,10 @@
         /* --- PANELES CONTENEDORES DINÁMICOS --- */
         .tab-pane {
             display: none;
-            animation: pharrellFade 0.4s ease-out forwards;
         }
 
         .tab-pane.active {
             display: block;
-        }
-
-        @keyframes pharrellFade {
-            from { opacity: 0; transform: translateY(8px); }
-            to { opacity: 1; transform: translateY(0); }
         }
 
         /* Bloques de diseño didáctico interno */
@@ -206,6 +205,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
             gap: 20px;
+            margin-bottom: 25px;
         }
 
         .didactic-item {
@@ -241,7 +241,6 @@
             background-color: #fafafa;
             border: 1px solid #e4e4e7;
             padding: 30px;
-            margin-top: 20px;
         }
 
         .info-box-text p {
@@ -259,13 +258,7 @@
             border: 1px solid #e4e4e7;
             position: relative;
             overflow: hidden;
-            margin-top: 20px;
-        }
-
-        .display-placeholder img {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            object-fit: cover;
+            margin-top: 25px;
         }
 
         /* --- SECCIÓN CONCEPTO --- */
@@ -297,6 +290,7 @@
         @media (max-width: 900px) {
             .workspace-layout { grid-template-columns: 1fr; gap: 40px; }
             .social-top-right { position: relative; top: 0; right: 0; justify-content: center; margin-top: 20px; }
+            header { padding-top: 30px; }
         }
     </style>
 </head>
@@ -304,12 +298,11 @@
 
     <div class="container">
         
-        <!-- CABECERA PRINCIPAL CON TU LOGO OFICIAL CONVERTIDO A ALTA VELOCIDAD -->
+        <!-- CABECERA PRINCIPAL CON TU TITULO ESTILO GRAFFITI CALLEJERO / BOX LOGO -->
         <header>
-            <img src="https://postimg.cc" alt="Dexta No Se Salvan" class="logo-image">
+            <div class="logo-text-styled">Dexta No Se Salvan</div>
             
             <div class="social-top-right">
-                <!-- Cambia el 'tu_usuario' por tus redes reales cuando gustes -->
                 <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
                 <a href="https://tiktok.com" target="_blank"><i class="fab fa-tiktok"></i></a>
                 <a href="https://kick.com" target="_blank"><i class="fa-solid fa-play"></i></a>
@@ -327,3 +320,9 @@
                         [ Drop your Character Artwork or Studio PNG Photo here ]
                     </div>
                 </div>
+                <a href="https://spotify.com" target="_blank" class="listen-tag">Listen to my Beats</a>
+            </div>
+
+            <!-- COLUMNA DERECHA: PANELES INTERACTIVOS INTERCAMBIABLES -->
+            <div class="interactive-menu">
+                <div>
