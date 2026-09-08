@@ -3,297 +3,295 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dextano | Multi-Genre Producer & Audio Architect</title>
-    <!-- FUENTES Y LIBRERÍAS DE ÉLITE -->
-    <link href="https://googleapis.com" rel="stylesheet">
-    <link rel="stylesheet" href="https://unpkg.com" />
+    <title>Dextano | Multi-Genre Audio Architect</title>
+    <!-- FUENTES ULTRA LUXURY DE GOOGLE FONTS -->
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Syne:wght@700;800&family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- ICONOS PROFESIONALES -->
     <link rel="stylesheet" href="https://cloudflare.com">
+    <link rel="stylesheet" href="https://unpkg.com" />
+    
     <style>
         :root {
-            --bg-deep: #020204;
-            --glass-card: rgba(10, 10, 15, 0.7);
-            --glass-border: rgba(255, 255, 255, 0.04);
-            --neon-pink: #ff007f;
+            --bg-dark: #030306;
+            --panel-glass: rgba(10, 10, 18, 0.75);
+            --border-glass: rgba(255, 255, 255, 0.03);
             --neon-cyan: #00f2fe;
-            --neon-purple: #9d4edf;
-            --text-light: #ffffff;
-            --text-dim: #94a3b8;
+            --neon-pink: #ff007f;
+            --neon-purple: #7f00ff;
+            --font-luxury: 'Syne', sans-serif;
+            --font-main: 'Plus Jakarta Sans', sans-serif;
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Inter', sans-serif;
         }
 
         body {
-            background-color: var(--bg-deep);
-            color: var(--text-light);
+            background-color: var(--bg-dark);
+            color: #ffffff;
+            font-family: var(--font-main);
             overflow-x: hidden;
             scroll-behavior: smooth;
         }
 
-        /* --- EFECTO PARALLAX FOTO DE FONDO --- */
-        .parallax-hero {
+        /* --- PARALLAX CINEMATOGRÁFICO DE FONDO --- */
+        .luxury-hero {
             position: relative;
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             overflow: hidden;
-            /* REEMPLAZA EL LINK DE ABAJO CON TU FOTO REAL (SUBIDA A IMGUR O POSTIMAGES) */
-            background-image: linear-gradient(to bottom, rgba(2, 2, 4, 0.5), var(--bg-deep)), 
+            /* REEMPLAZA ESTE ENLACE CON TU MEJOR FOTO EN EL ESTUDIO */
+            background-image: linear-gradient(to bottom, rgba(3, 3, 6, 0.4), var(--bg-dark)), 
                               url('https://unsplash.com');
             background-attachment: fixed;
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
             text-align: center;
+            padding: 120px 24px;
         }
 
-        /* --- CANVAS DE PARTÍCULAS --- */
-        #canvas-bg {
+        #particles-mesh {
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
             pointer-events: none;
-            opacity: 0.3;
+            opacity: 0.25;
             z-index: 1;
         }
 
-        .hero-content {
+        .hero-inner {
             position: relative;
             z-index: 2;
-            max-width: 800px;
+            max-width: 1000px;
+        }
+
+        /* --- LOGO LED FLOTANTE --- */
+        .brand-logo {
+            width: 85px;
+            height: 85px;
+            margin: 0 auto 35px auto;
+            background: linear-gradient(135deg, #fff 0%, rgba(255,255,255,0.05) 100%);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-luxury);
+            font-weight: 800;
+            font-size: 1.8rem;
+            color: #fff;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            animation: float 4s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
+            50% { transform: translateY(-10px); box-shadow: 0 25px 50px rgba(0, 242, 254, 0.15); }
+        }
+
+        /* --- TIPOGRAFÍA ESTILO BILLBOARD --- */
+        h1 {
+            font-family: var(--font-luxury);
+            font-size: 6.5rem;
+            font-weight: 800;
+            letter-spacing: -4px;
+            line-height: 0.85;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+            background: linear-gradient(180deg, #ffffff 40%, rgba(255,255,255,0.4) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* FRASES ULTRA-CHIMBAS EN LUGAR DE PÁRRAFOS VACIÓS */
+        .luxury-punchline {
+            font-family: var(--font-luxury);
+            font-size: 1.6rem;
+            text-transform: uppercase;
+            letter-spacing: -0.5px;
+            max-width: 850px;
+            margin: 0 auto 50px auto;
+            line-height: 1.3;
+            color: #e2e8f0;
+        }
+
+        .luxury-punchline span.cyan { color: var(--neon-cyan); text-shadow: 0 0 15px rgba(0, 242, 254, 0.4); }
+        .luxury-punchline span.pink { color: var(--neon-pink); text-shadow: 0 0 15px rgba(255, 0, 127, 0.4); }
+
+        /* --- REDES SOCIALES CON ICONOS REALES --- */
+        .social-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .btn-social {
+            width: 55px;
+            height: 55px;
+            border-radius: 18px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border-glass);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255,255,255,0.6);
+            font-size: 1.3rem;
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-social:hover {
+            transform: translateY(-8px) scale(1.05);
+            color: #fff;
+            border-color: rgba(255,255,255,0.3);
+            box-shadow: 0 15px 30px rgba(255,255,255,0.1);
+        }
+
+        .btn-social.insta:hover { color: #e1306c; border-color: #e1306c; box-shadow: 0 10px 25px rgba(225, 48, 108, 0.2); }
+        .btn-social.tiktok:hover { color: #00f2fe; border-color: #00f2fe; box-shadow: 0 10px 25px rgba(0, 242, 254, 0.2); }
+        .btn-social.kick:hover { color: #53fc18; border-color: #53fc18; box-shadow: 0 10px 25px rgba(83, 252, 24, 0.2); }
+        .btn-social.spoty:hover { color: #1ed760; border-color: #1ed760; box-shadow: 0 10px 25px rgba(30, 215, 96, 0.2); }
+
+        /* --- DISEÑO DE CONTENIDO PREMIUM --- */
+        .section-wrap {
+            padding: 120px 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
             padding: 0 24px;
         }
 
-        /* --- LOGO CONTENEDOR --- */
-        .logo-placeholder {
-            width: 90px;
-            height: 90px;
-            margin: 0 auto 25px auto;
-            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
-            border-radius: 22px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 0 30px rgba(0, 242, 254, 0.4);
-            font-weight: 900;
-            font-size: 2rem;
-            letter-spacing: -1px;
-            color: #000;
-        }
-
-        h1 {
-            font-size: 5.5rem;
-            font-weight: 900;
-            letter-spacing: -4px;
-            line-height: 0.9;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            background: linear-gradient(90deg, #fff, var(--neon-cyan), var(--neon-pink));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .tagline {
-            font-size: 1.25rem;
-            color: var(--text-dim);
-            font-weight: 300;
-            margin-bottom: 40px;
-        }
-
-        .tagline span { color: #fff; font-weight: 600; }
-
-        /* --- REDES SOCIALES PREMIUM --- */
-        .social-row {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-bottom: 50px;
-        }
-
-        .social-icon {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.03);
-            border: 1px solid var(--glass-border);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #fff;
-            font-size: 1.2rem;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .social-icon:hover {
-            transform: translateY(-5px);
-            color: var(--neon-cyan);
-            border-color: var(--neon-cyan);
-            box-shadow: 0 0 15px rgba(0, 242, 254, 0.3);
-        }
-
-        /* --- SECCIONES DE CONTENIDO DE ALTA GAMA --- */
-        .section-padding {
-            padding: 100px 0;
-        }
-
         h2 {
-            font-size: 2.8rem;
-            font-weight: 900;
+            font-family: var(--font-luxury);
+            font-size: 3rem;
             letter-spacing: -2px;
-            margin-bottom: 50px;
             text-transform: uppercase;
-            background: linear-gradient(90deg, #fff, var(--neon-purple));
+            margin-bottom: 60px;
+            background: linear-gradient(90deg, #fff, #555);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        .glass-panel {
-            background: var(--glass-card);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid var(--glass-border);
-            border-radius: 32px;
-            padding: 40px;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.4);
-            margin-bottom: 40px;
+        .glass-vault {
+            background: var(--panel-glass);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border: 1px solid var(--border-glass);
+            border-radius: 40px;
+            padding: 50px;
+            box-shadow: 0 50px 100px rgba(0,0,0,0.6);
         }
 
-        /* --- GRILLA ASIMÉTRICA DE CAPTURAS/CONTENIDO --- */
-        .portfolio-grid {
+        /* GRID ASIMÉTRICO DE TARJETAS (ESTILO TOO LOST ACTUALIZADO) */
+        .luxury-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 35px;
         }
 
-        .screenshot-card {
+        .vault-card {
             background: rgba(255,255,255,0.01);
-            border: 1px solid var(--glass-border);
-            border-radius: 24px;
+            border: 1px solid var(--border-glass);
+            border-radius: 28px;
             overflow: hidden;
-            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
 
-        .screenshot-card:hover {
-            transform: scale(1.03);
-            border-color: var(--neon-pink);
-            box-shadow: 0 15px 30px rgba(255, 0, 127, 0.1);
+        .vault-card:hover {
+            transform: translateY(-12px);
+            border-color: rgba(255,255,255,0.15);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
         }
 
-        .img-wrapper {
+        .display-box {
             position: relative;
-            padding-bottom: 65%;
-            background: #111;
+            padding-bottom: 68%;
+            background: #08080c;
             overflow: hidden;
         }
 
-        .img-wrapper img {
+        .display-box img {
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
             object-fit: cover;
-            transition: transform 0.5s ease;
+            transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
 
-        .screenshot-card:hover .img-wrapper img {
-            transform: scale(1.08);
+        .vault-card:hover .display-box img {
+            transform: scale(1.06);
         }
 
-        .card-meta {
-            padding: 24px;
+        .card-details {
+            padding: 30px;
         }
 
-        .card-badge {
+        .luxury-badge {
             display: inline-block;
-            background: rgba(0, 242, 254, 0.1);
-            color: var(--neon-cyan);
-            font-size: 0.75rem;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.08);
+            color: #fff;
+            font-size: 0.7rem;
             font-weight: 700;
-            padding: 4px 12px;
-            border-radius: 8px;
+            padding: 5px 14px;
+            border-radius: 30px;
             text-transform: uppercase;
-            margin-bottom: 12px;
+            letter-spacing: 1.5px;
+            margin-bottom: 15px;
         }
 
-        /* FORMULARIO ESTILO AGENCIA */
-        .form-grid {
+        /* --- AGENCIA BOOKING FORM --- */
+        .form-row {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 20px;
+            gap: 24px;
         }
 
         input, textarea {
             width: 100%;
-            background: rgba(0,0,0,0.5);
-            border: 1px solid rgba(255,255,255,0.05);
+            background: rgba(0,0,0,0.6);
+            border: 1px solid rgba(255,255,255,0.04);
             color: #fff;
-            padding: 20px;
-            border-radius: 16px;
+            padding: 22px;
+            border-radius: 18px;
             font-size: 1rem;
-            transition: border-color 0.3s ease;
+            font-family: var(--font-main);
+            transition: all 0.3s ease;
         }
 
         input:focus, textarea:focus {
             outline: none;
-            border-color: var(--neon-cyan);
+            border-color: rgba(255,255,255,0.2);
+            background: rgba(0,0,0,0.8);
         }
 
-        .btn-premium {
+        .btn-luxury-send {
             grid-column: span 2;
-            background: linear-gradient(90deg, var(--neon-pink), var(--neon-purple));
-            color: #fff;
+            background: #ffffff;
+            color: #000000;
+            font-family: var(--font-luxury);
             font-weight: 800;
             border: none;
-            padding: 22px;
-            border-radius: 16px;
+            padding: 24px;
+            border-radius: 18px;
             text-transform: uppercase;
             letter-spacing: 1px;
             cursor: pointer;
-            box-shadow: 0 10px 30px rgba(255, 0, 127, 0.25);
             transition: all 0.3s ease;
+            font-size: 1.1rem;
         }
 
-        .btn-premium:hover {
+        .btn-luxury-send:hover {
+            background: var(--neon-cyan);
+            box-shadow: 0 15px 40px rgba(0, 242, 254, 0.4);
             transform: translateY(-2px);
-            box-shadow: 0 15px 40px rgba(255, 0, 127, 0.45);
         }
-
-        @media(max-width: 768px) {
-            h1 { font-size: 3.5rem; }
-            .form-grid { grid-template-columns: 1fr; }
-            .btn-premium { grid-column: span 1; }
-        }
-    </style>
-</head>
-<body>
-
-    <!-- HERO PRINCIPAL CON FOTO PARALLAX -->
-    <div class="parallax-hero">
-        <canvas id="canvas-bg"></canvas>
-        <div class="hero-content">
-            <!-- REEMPLAZA EL TEXTO "DX" CON TU LOGO SI LO TIENES -->
-            <div class="logo-placeholder" data-aos="fade-down">DX</div>
-            <h1 data-aos="zoom-in" data-aos-delay="200">DEXTANO</h1>
-            <p class="tagline" data-aos="fade-up" data-aos-delay="400">
-                Multi-Genre Producer & Audio Architect // 15 Years of Elite Deployment. Expert in <span>Pro Tools</span> deployment & <span>FL Studio</span> live performance.
-            </p>
-
-            <!-- FILA DE ENLACES A REDES SOCIALES REALES -->
-            <div class="social-row" data-aos="fade-up" data-aos-delay="500">
-                <a href="https://instagram.com" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
-                <a href="https://tiktok.com" target="_blank" class="social-icon"><i class="fab fa-tiktok"></i></a>
-                <a href="https://kick.com" target="_blank" class="social-icon"><i class="fa-solid fa-play"></i></a>
-                <a href="https://spotify.com" target="_blank" class="social-icon"><i class="fab fa-spotify"></i></a>
-            </div>
-        </div>
-    </div>
-
-    <div class="container">
-        <!-- SECCIÓN AUDIO / SPOTIFY -->
-        <section class="section-padding" data-aos="fade-up">
-            <h2>Audio Deployment & Analytics</h2>
-            <div class="glass-panel">
-                <!-- REEMPLAZA CON EL REPRODUCTOR EMBED DE TU PLAYLIST DE SPOTIFY -->
