@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Showcase Portfolio | Multi-Genre Producer</title>
+    <style>
+        :root {
+            --bg-deep: #050508;
+            --panel-bg: #0f0f16;
+            --neon-pink: #ff007f;
+            --neon-cyan: #00f2fe;
+            --neon-purple: #9d4edf;
+            --text-light: #ffffff;
+            --text-dim: #64748b;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-deep);
+            color: var(--text-light);
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* --- CABECERA ESTILO CYBER-NEON --- */
+        header {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            background: radial-gradient(circle at 20% 30%, rgba(255, 0, 127, 0.1), transparent 40%),
+                        radial-gradient(circle at 80% 70%, rgba(0, 242, 254, 0.1), transparent 40%);
+            padding: 100px 0 60px 0;
+        }
+
+        .live-indicator {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 0, 127, 0.15);
+            border: 1px solid var(--neon-pink);
+            color: var(--neon-pink);
+            font-weight: 700;
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 25px;
+            box-shadow: 0 0 15px rgba(255, 0, 127, 0.3);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 5px rgba(255, 0, 127, 0.3); }
+            50% { box-shadow: 0 0 20px rgba(255, 0, 127, 0.6); }
+            100% { box-shadow: 0 0 5px rgba(255, 0, 127, 0.3); }
+        }
+
+        h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            letter-spacing: -2px;
+            line-height: 1;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            background: linear-gradient(90deg, #fff, var(--neon-cyan), var(--neon-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-skills {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            font-weight: 500;
+            margin-bottom: 40px;
+            letter-spacing: 1px;
+        }
+
+        .hero-skills span {
+            color: var(--neon-cyan);
+            font-weight: 700;
+        }
+
+        /* --- ECUALIZADOR ANIMADO (REEMPLAZA DISCOS) --- */
+        .eq-loader {
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            height: 40px;
+            gap: 4px;
+            margin-bottom: 40px;
+        }
+
+        .eq-bar {
+            width: 6px;
+            background: linear-gradient(to top, var(--neon-purple), var(--neon-cyan));
+            animation: bounce 1.2s ease-in-out infinite alternate;
+            border-radius: 3px;
+        }
+
+        .eq-bar:nth-child(2) { height: 30px; animation-delay: 0.2s; background: var(--neon-pink); }
+        .eq-bar:nth-child(3) { height: 40px; animation-delay: 0.4s; }
+        .eq-bar:nth-child(4) { height: 15px; animation-delay: 0.1s; background: var(--neon-pink); }
+        .eq-bar:nth-child(5) { height: 35px; animation-delay: 0.3s; }
+
+        @keyframes bounce {
+            10% { transform: scaleY(0.3); }
+            100% { transform: scaleY(1.1); }
+        }
+
+        /* --- PANELES MÉTRICOS COLORIDOS --- */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 24px;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .metric-card {
+            background: var(--panel-bg);
+            border: 1px solid #1e1e2f;
+            border-radius: 20px;
+            padding: 30px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .metric-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 4px;
+            background: linear-gradient(90deg, var(--neon-cyan), var(--neon-purple));
+        }
+
+        .metric-card.pink::before {
+            background: linear-gradient(90deg, var(--neon-pink), var(--neon-purple));
+        }
+
+        .metric-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 30px rgba(0, 242, 254, 0.15);
+            border-color: var(--neon-cyan);
+        }
+
+        .metric-card.pink:hover {
+            box-shadow: 0 10px 30px rgba(255, 0, 127, 0.15);
+            border-color: var(--neon-pink);
+        }
+
+        .m-num {
+            font-size: 3.2rem;
+            font-weight: 900;
+            line-height: 1;
+            margin-bottom: 8px;
+            letter-spacing: -1px;
+        }
+
+        .m-title {
+            color: var(--neon-cyan);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+        }
+
+        .metric-card.pink .m-title {
+            color: var(--neon-pink);
+        }
+
+        .m-desc {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            margin-top: 4px;
+        }
+
+        /* --- BOTONES DE CONTROL INTERACTIVOS --- */
+        .showcase-section {
+            padding: 100px 0;
+        }
+
+        .hub-navigation {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 50px;
+        }
+
+        .hub-btn {
+            background: #14141f;
+            border: 1px solid #232336;
+            color: var(--text-light);
+            padding: 14px 28px;
+            border-radius: 40px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hub-btn:hover {
+            border-color: var(--neon-cyan);
+            box-shadow: 0 0 15px rgba(0, 242, 254, 0.3);
+        }
+
+        .hub-btn.active {
+            background: linear-gradient(90deg, var(--neon-cyan), var(--neon-purple));
+            color: #000;
+            border-color: transparent;
+            box-shadow: 0 5px 20px rgba(0, 242, 254, 0.4);
+        }
+
+        .hub-btn.active-pink {
+            background: linear-gradient(90deg, var(--neon-pink), var(--neon-purple));
+            color: #fff;
+            border-color: transparent;
+            box-shadow: 0 5px 20px rgba(255, 0, 127, 0.4);
+        }
+
+        .pane {
+            display: none;
+            animation: slideUp 0.5s cubic-bezier(0.1, 1, 0.1, 1) forwards;
+        }
+
+        .pane.active {
+            display: block;
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- GRILLA DE CONTENIDOS INTERACTIVOS --- */
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 30px;
+        }
+
+        .v-card {
+            background: var(--panel-bg);
+            border: 1px solid #1e1e2f;
+            border-radius: 24px;
+            overflow: hidden;
+            transition: border-color 0.3s ease;
+        }
+
+        .v-card:hover {
+            border-color: var(--neon-purple);
+        }
+
+        .video-box {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            background: #000;
+        }
+
+        .video-box iframe {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+        }
+
+        .v-body {
+            padding: 24px;
+        }
+
+        .v-label {
+            display: inline-block;
+            background: rgba(0, 242, 254, 0.1);
+            color: var(--neon-cyan);
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 8px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .v-title {
+            font-size: 1.3rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .v-desc {
+            color: var(--text-dim);
+            font-size: 0.95rem;
+        }
+
+        /* --- CONTACTO / BOOKING --- */
+        .booking-section {
+            padding: 100px 0;
+            background: #09090e;
+            position: relative;
+        }
+
+        .booking-card {
+            background: var(--panel-bg);
+            border: 1px solid #1e1e2f;
+            border-radius: 32px;
+            padding: 40px;
+            max-width: 650px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .booking-card h2 {
+            font-size: 2.2rem;
+            font-weight: 900;
+            margin-bottom: 10px;
+        }
+
+        form {
+            margin-top: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        input, textarea {
+            width: 100%;
+            background: var(--bg-deep);
+            border: 1px solid #232336;
+            color: #fff;
+            padding: 18px;
+            border-radius: 14px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        input:focus, textarea:focus {
