@@ -4,14 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dextano | Multi-Genre Producer & Audio Architect</title>
-    <!-- FUENTE DE GAMA ALTA INTER & LIBRERÍA DE ANIMACIÓN AOS -->
+    <!-- FUENTES Y LIBRERÍAS DE ÉLITE -->
     <link href="https://googleapis.com" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com" />
+    <link rel="stylesheet" href="https://cloudflare.com">
     <style>
         :root {
-            --bg-deep: #030305;
-            --glass-bg: rgba(15, 15, 25, 0.6);
-            --glass-border: rgba(255, 255, 255, 0.05);
+            --bg-deep: #020204;
+            --glass-card: rgba(10, 10, 15, 0.7);
+            --glass-border: rgba(255, 255, 255, 0.04);
             --neon-pink: #ff007f;
             --neon-cyan: #00f2fe;
             --neon-purple: #9d4edf;
@@ -33,181 +34,182 @@
             scroll-behavior: smooth;
         }
 
-        /* --- FONDO DE PARTICULAS INTERACTIVO --- */
-        #canvas-bg {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            z-index: -1;
-            pointer-events: none;
-            opacity: 0.4;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-
-        /* --- CABECERA DE IMPACTO ESTILO TOO LOST --- */
-        header {
-            min-height: 95vh;
+        /* --- EFECTO PARALLAX FOTO DE FONDO --- */
+        .parallax-hero {
+            position: relative;
+            min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
+            overflow: hidden;
+            /* REEMPLAZA EL LINK DE ABAJO CON TU FOTO REAL (SUBIDA A IMGUR O POSTIMAGES) */
+            background-image: linear-gradient(to bottom, rgba(2, 2, 4, 0.5), var(--bg-deep)), 
+                              url('https://unsplash.com');
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
             text-align: center;
-            padding: 100px 0;
         }
 
-        .status-pill {
-            background: linear-gradient(90deg, rgba(0, 242, 254, 0.1), rgba(255, 0, 127, 0.1));
-            border: 1px solid var(--neon-cyan);
-            color: var(--neon-cyan);
-            font-weight: 600;
-            padding: 8px 20px;
-            border-radius: 40px;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            display: inline-block;
-            margin-bottom: 25px;
-            box-shadow: 0 0 20px rgba(0, 242, 254, 0.2);
+        /* --- CANVAS DE PARTÍCULAS --- */
+        #canvas-bg {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none;
+            opacity: 0.3;
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 0 24px;
+        }
+
+        /* --- LOGO CONTENEDOR --- */
+        .logo-placeholder {
+            width: 90px;
+            height: 90px;
+            margin: 0 auto 25px auto;
+            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
+            border-radius: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 30px rgba(0, 242, 254, 0.4);
+            font-weight: 900;
+            font-size: 2rem;
+            letter-spacing: -1px;
+            color: #000;
         }
 
         h1 {
-            font-size: 5rem;
+            font-size: 5.5rem;
             font-weight: 900;
-            letter-spacing: -3px;
-            line-height: 0.95;
+            letter-spacing: -4px;
+            line-height: 0.9;
             margin-bottom: 20px;
             text-transform: uppercase;
-            background: linear-gradient(135deg, #ffffff 30%, var(--neon-cyan), var(--neon-pink));
+            background: linear-gradient(90deg, #fff, var(--neon-cyan), var(--neon-pink));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        .hero-tagline {
-            font-size: 1.3rem;
+        .tagline {
+            font-size: 1.25rem;
             color: var(--text-dim);
-            margin-bottom: 50px;
             font-weight: 300;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
+            margin-bottom: 40px;
         }
 
-        .hero-tagline span {
-            color: #fff;
-            font-weight: 600;
+        .tagline span { color: #fff; font-weight: 600; }
+
+        /* --- REDES SOCIALES PREMIUM --- */
+        .social-row {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 50px;
         }
 
-        /* --- TARJETAS FLOTANTES DE CRISTAL (GLASSMORPHISM) --- */
-        .metrics-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 25px;
-            width: 100%;
-        }
-
-        .glass-card {
-            background: var(--glass-bg);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+        .social-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.03);
             border: 1px solid var(--glass-border);
-            border-radius: 24px;
-            padding: 35px;
-            text-align: left;
-            position: relative;
-            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 1.2rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
         }
 
-        .glass-card:hover {
-            transform: translateY(-10px) scale(1.02);
-            border-color: rgba(0, 242, 254, 0.3);
-            box-shadow: 0 20px 40px rgba(0, 242, 254, 0.08);
-        }
-
-        .m-num {
-            font-size: 3.5rem;
-            font-weight: 900;
-            line-height: 1;
-            margin-bottom: 10px;
-            background: linear-gradient(45deg, #fff, var(--neon-pink));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .m-title {
+        .social-icon:hover {
+            transform: translateY(-5px);
             color: var(--neon-cyan);
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-weight: 800;
-            margin-bottom: 8px;
+            border-color: var(--neon-cyan);
+            box-shadow: 0 0 15px rgba(0, 242, 254, 0.3);
         }
 
-        /* --- SECCIONES CON MOVIMIENTO --- */
-        section {
-            padding: 120px 0 60px 0;
+        /* --- SECCIONES DE CONTENIDO DE ALTA GAMA --- */
+        .section-padding {
+            padding: 100px 0;
         }
 
         h2 {
-            font-size: 2.5rem;
-            font-weight: 800;
-            letter-spacing: -1px;
-            margin-bottom: 40px;
+            font-size: 2.8rem;
+            font-weight: 900;
+            letter-spacing: -2px;
+            margin-bottom: 50px;
             text-transform: uppercase;
             background: linear-gradient(90deg, #fff, var(--neon-purple));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        .showcase-wrapper {
-            background: var(--glass-bg);
-            backdrop-filter: blur(12px);
+        .glass-panel {
+            background: var(--glass-card);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             border: 1px solid var(--glass-border);
             border-radius: 32px;
             padding: 40px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+            margin-bottom: 40px;
         }
 
-        .content-grid {
+        /* --- GRILLA ASIMÉTRICA DE CAPTURAS/CONTENIDO --- */
+        .portfolio-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
         }
 
-        .v-card {
-            background: rgba(255,255,255,0.02);
+        .screenshot-card {
+            background: rgba(255,255,255,0.01);
             border: 1px solid var(--glass-border);
             border-radius: 24px;
             overflow: hidden;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
 
-        .v-card:hover {
+        .screenshot-card:hover {
+            transform: scale(1.03);
             border-color: var(--neon-pink);
-            transform: scale(1.01);
+            box-shadow: 0 15px 30px rgba(255, 0, 127, 0.1);
         }
 
-        .video-box {
+        .img-wrapper {
             position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-            background: #000;
+            padding-bottom: 65%;
+            background: #111;
+            overflow: hidden;
         }
 
-        .video-box iframe {
+        .img-wrapper img {
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
         }
 
-        .v-body {
-            padding: 25px;
+        .screenshot-card:hover .img-wrapper img {
+            transform: scale(1.08);
         }
 
-        .v-tag {
+        .card-meta {
+            padding: 24px;
+        }
+
+        .card-badge {
             display: inline-block;
-            background: rgba(255, 0, 127, 0.1);
-            color: var(--neon-pink);
+            background: rgba(0, 242, 254, 0.1);
+            color: var(--neon-cyan);
             font-size: 0.75rem;
             font-weight: 700;
             padding: 4px 12px;
@@ -216,100 +218,82 @@
             margin-bottom: 12px;
         }
 
-        .v-title {
-            font-size: 1.3rem;
-            font-weight: 800;
-            margin-bottom: 10px;
-        }
-
-        /* --- FORMULARIO PREMIUM --- */
-        .booking-box {
-            background: linear-gradient(135deg, rgba(15,15,25,0.8), rgba(5,5,10,0.8));
-            backdrop-filter: blur(12px);
-            border: 1px solid var(--glass-border);
-            border-radius: 32px;
-            padding: 50px;
-            max-width: 700px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        form {
-            margin-top: 40px;
-            display: flex;
-            flex-direction: column;
+        /* FORMULARIO ESTILO AGENCIA */
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
             gap: 20px;
         }
 
         input, textarea {
             width: 100%;
-            background: rgba(0, 0, 0, 0.4);
-            border: 1px solid rgba(255,255,255,0.08);
+            background: rgba(0,0,0,0.5);
+            border: 1px solid rgba(255,255,255,0.05);
             color: #fff;
             padding: 20px;
             border-radius: 16px;
             font-size: 1rem;
-            transition: all 0.3s ease;
+            transition: border-color 0.3s ease;
         }
 
         input:focus, textarea:focus {
             outline: none;
             border-color: var(--neon-cyan);
-            box-shadow: 0 0 15px rgba(0, 242, 254, 0.2);
         }
 
-        .btn-glow {
+        .btn-premium {
+            grid-column: span 2;
             background: linear-gradient(90deg, var(--neon-pink), var(--neon-purple));
-            color: white;
+            color: #fff;
             font-weight: 800;
             border: none;
-            padding: 20px;
+            padding: 22px;
             border-radius: 16px;
-            font-size: 1.05rem;
             text-transform: uppercase;
             letter-spacing: 1px;
             cursor: pointer;
-            box-shadow: 0 8px 25px rgba(255, 0, 127, 0.3);
+            box-shadow: 0 10px 30px rgba(255, 0, 127, 0.25);
             transition: all 0.3s ease;
         }
 
-        .btn-glow:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 30px rgba(255, 0, 127, 0.5);
+        .btn-premium:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(255, 0, 127, 0.45);
         }
 
-        @media (max-width: 768px) {
-            h1 { font-size: 3.2rem; }
+        @media(max-width: 768px) {
+            h1 { font-size: 3.5rem; }
+            .form-grid { grid-template-columns: 1fr; }
+            .btn-premium { grid-column: span 1; }
         }
     </style>
 </head>
 <body>
 
-    <!-- FONDO MATRICIAL INTERACTIVO -->
-    <canvas id="canvas-bg"></canvas>
-
-    <!-- CABECERA PRINCIPAL -->
-    <header>
-        <div class="container">
-            <div class="status-pill" data-aos="fade-down">International Producer Deployment</div>
-            <!-- PON TU NOMBRE ARTÍSTICO REAL AQUÍ -->
+    <!-- HERO PRINCIPAL CON FOTO PARALLAX -->
+    <div class="parallax-hero">
+        <canvas id="canvas-bg"></canvas>
+        <div class="hero-content">
+            <!-- REEMPLAZA EL TEXTO "DX" CON TU LOGO SI LO TIENES -->
+            <div class="logo-placeholder" data-aos="fade-down">DX</div>
             <h1 data-aos="zoom-in" data-aos-delay="200">DEXTANO</h1>
-            <div class="hero-tagline" data-aos="fade-up" data-aos-delay="400">
-                15 years architecting premium sonics. Master in <span>Pro Tools</span> engineering and lightning-fast <span>FL Studio</span> live beatmaking workflows.
+            <p class="tagline" data-aos="fade-up" data-aos-delay="400">
+                Multi-Genre Producer & Audio Architect // 15 Years of Elite Deployment. Expert in <span>Pro Tools</span> deployment & <span>FL Studio</span> live performance.
+            </p>
+
+            <!-- FILA DE ENLACES A REDES SOCIALES REALES -->
+            <div class="social-row" data-aos="fade-up" data-aos-delay="500">
+                <a href="https://instagram.com" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+                <a href="https://tiktok.com" target="_blank" class="social-icon"><i class="fab fa-tiktok"></i></a>
+                <a href="https://kick.com" target="_blank" class="social-icon"><i class="fa-solid fa-play"></i></a>
+                <a href="https://spotify.com" target="_blank" class="social-icon"><i class="fab fa-spotify"></i></a>
             </div>
-            
-            <!-- TARJETAS CON EFECTO DE REVELACIÓN INDEPENDIENTE -->
-            <div class="metrics-grid">
-                <div class="glass-card" data-aos="fade-up" data-aos-delay="500">
-                    <div class="m-num">100K+</div>
-                    <div class="m-title">Monthly Listeners</div>
-                    <p style="color: var(--text-dim); font-size: 0.9rem;">Global distribution and audience footprint.</p>
-                </div>
-                <div class="glass-card" data-aos="fade-up" data-aos-delay="600">
-                    <div class="m-num">Sync</div>
-                    <div class="m-title">Palmolive Campaign</div>
-                    <p style="color: var(--text-dim); font-size: 0.9rem;">4-track multi-national corporate scoring rollout.</p>
-                </div>
-                <div class="glass-card" data-aos="fade-up" data-aos-delay="700">
-                    <div class="m-num">Live</div>
-                    <div class="m-title">On-Demand Beats</div>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- SECCIÓN AUDIO / SPOTIFY -->
+        <section class="section-padding" data-aos="fade-up">
+            <h2>Audio Deployment & Analytics</h2>
+            <div class="glass-panel">
+                <!-- REEMPLAZA CON EL REPRODUCTOR EMBED DE TU PLAYLIST DE SPOTIFY -->
