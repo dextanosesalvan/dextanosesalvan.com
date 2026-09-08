@@ -3,22 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dexta No Se Salvan | Multi-Genre Audio Architect</title>
-    <!-- FUENTES PREMIUM MINIMALISTAS -->
+    <title>DEXTANO | Audio Architect Portfolio</title>
+    <!-- FUENTES PREMIUM ESTILO PHARRELL / STREETWEAR -->
     <link rel="preconnect" href="https://googleapis.com">
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <link href="https://googleapis.com/css2?family=Syne:wght@700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <!-- ICONOS CON CARGA SEGURA -->
     <link rel="stylesheet" href="https://cloudflare.com" crossorigin="anonymous" />
     
     <style>
         :root {
-            --bg-clean: #ffffff;
-            --text-dark: #09090b;
+            --bg-pure: #ffffff;
+            --text-dark: #000000;
             --text-muted: #71717a;
-            --border-light: #e4e4e7;
-            --card-bg: #fafafa;
-            --font-display: 'Syne', sans-serif;
+            --border-line: #000000;
+            --font-header: 'Space Grotesk', sans-serif;
             --font-body: 'Plus Jakarta Sans', sans-serif;
         }
 
@@ -29,165 +28,237 @@
         }
 
         body {
-            background-color: var(--bg-clean);
+            background-color: var(--bg-pure);
             color: var(--text-dark);
             font-family: var(--font-body);
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
+            padding-bottom: 80px;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1100px;
             margin: 0 auto;
             padding: 0 24px;
         }
 
-        /* --- SECCIÓN SUPERIOR: LOGO Y REDES --- */
-        .top-bar {
+        /* --- CABECERA CON TU LOGO OFICIAL --- */
+        header {
+            text-align: center;
+            padding: 50px 0 20px 0;
+            position: relative;
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
             align-items: center;
-            padding: 40px 0;
-            border-bottom: 1px solid var(--border-light);
         }
 
-        /* Aquí cargaremos tu imagen de logo después */
-        .logo-box {
-            width: 70px;
-            height: 70px;
-            border: 2px solid var(--text-dark);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: var(--font-display);
-            font-weight: 800;
-            font-size: 1.5rem;
-            letter-spacing: -1px;
+        .logo-image {
+            width: 100%;
+            max-width: 280px;
+            height: auto;
+            object-fit: contain;
+            margin-bottom: 10px;
         }
 
-        .social-header-row {
+        .social-top-right {
+            position: absolute;
+            top: 75px;
+            right: 24px;
             display: flex;
-            gap: 16px;
+            gap: 18px;
         }
 
-        .social-link {
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            border: 1px solid var(--border-light);
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .social-top-right a {
             color: var(--text-dark);
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             text-decoration: none;
-            transition: all 0.25s ease;
+            transition: opacity 0.2s, transform 0.2s;
         }
 
-        .social-link:hover {
-            background-color: var(--text-dark);
-            color: var(--bg-clean);
-            border-color: var(--text-dark);
+        .social-top-right a:hover {
+            opacity: 0.6;
             transform: translateY(-2px);
         }
 
-        /* --- SECCIÓN DEL NOMBRE E HISTORIA --- */
-        .identity-section {
-            padding: 80px 0 60px 0;
+        /* --- DISEÑO DEL CONTENEDOR DE JUEGO INTERACTIVO --- */
+        .workspace-layout {
+            display: grid;
+            grid-template-columns: 42% 58%;
+            gap: 50px;
+            align-items: center;
+            min-height: 65vh;
+            margin-top: 20px;
         }
 
-        .brand-statement {
-            font-family: var(--font-display);
-            font-size: 5rem;
-            font-weight: 800;
-            letter-spacing: -3px;
-            line-height: 0.9;
+        /* Área Izquierda: Tu Avatar / Ilustración */
+        .avatar-zone {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .avatar-box {
+            width: 100%;
+            max-width: 320px;
+            padding-bottom: 120%;
+            background-color: #f8f8f9;
+            border: 2px dashed var(--text-dark);
+            position: relative;
+            margin-bottom: 25px;
+        }
+
+        .avatar-box img {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            object-fit: contain;
+        }
+
+        .listen-tag {
+            font-family: var(--font-header);
+            font-size: 1rem;
+            font-weight: 700;
             text-transform: uppercase;
-            margin-bottom: 24px;
+            letter-spacing: 2px;
+            cursor: pointer;
+            text-decoration: none;
+            color: var(--text-dark);
+            border-bottom: 2px solid var(--text-dark);
+            padding-bottom: 2px;
+            transition: opacity 0.2s;
         }
 
-        .translation-sub {
-            font-size: 1.1rem;
+        .listen-tag:hover {
+            opacity: 0.6;
+        }
+
+        /* Área Derecha: Menú de Categorías */
+        .interactive-menu {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .menu-instruction {
+            font-family: var(--font-header);
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .category-nav {
+            display: flex;
+            gap: 24px;
+            border-bottom: 2px solid var(--text-dark);
+            padding-bottom: 14px;
+            margin-bottom: 10px;
+        }
+
+        .cat-btn {
+            font-family: var(--font-header);
+            font-size: 0.95rem;
+            font-weight: 700;
+            background: none;
+            border: none;
+            cursor: pointer;
             color: var(--text-muted);
             text-transform: uppercase;
             letter-spacing: 1px;
-            font-weight: 500;
-            margin-bottom: 35px;
+            position: relative;
+            transition: color 0.2s;
         }
 
-        .translation-sub span {
-            color: var(--text-dark);
-            font-weight: 700;
-        }
-
-        /* --- ESTRUCTURA ASIMÉTRICA DE CONTENIDOS --- */
-        .main-layout {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            padding-bottom: 120px;
-        }
-
-        /* Columna Izquierda */
-        .left-col {
-            display: flex;
-            flex-direction: column;
-            gap: 50px;
-        }
-
-        /* Columna Derecha */
-        .right-col {
-            display: flex;
-            flex-direction: column;
-            gap: 50px;
-        }
-
-        .section-heading {
-            font-family: var(--font-display);
-            font-size: 1.8rem;
-            text-transform: uppercase;
-            letter-spacing: -0.5px;
-            margin-bottom: 20px;
-            border-bottom: 1px solid var(--text-dark);
-            padding-bottom: 10px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        /* Nube de texto / Hoja de Vida */
-        .resume-cloud {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-light);
-            padding: 40px;
-            border-radius: 4px;
-            line-height: 1.6;
-            color: #27272a;
-            font-size: 1.05rem;
-        }
-
-        .resume-cloud p {
-            margin-bottom: 16px;
-        }
-
-        .resume-cloud strong {
+        .cat-btn.active, .cat-btn:hover {
             color: var(--text-dark);
         }
 
-        /* Espacio para Spotify e Imágenes */
-        .media-vault {
+        .cat-btn.active::after {
+            content: '';
+            position: absolute;
+            bottom: -16px;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background-color: var(--text-dark);
+        }
+
+        /* --- PANELES CONTENEDORES DINÁMICOS --- */
+        .tab-pane {
+            display: none;
+            animation: pharrellFade 0.4s ease-out forwards;
+        }
+
+        .tab-pane.active {
+            display: block;
+        }
+
+        @keyframes pharrellFade {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Bloques de diseño didáctico interno */
+        .items-display-grid {
             display: grid;
-            grid-template-columns: 1fr;
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
             gap: 20px;
+        }
+
+        .didactic-item {
+            border: 2px solid var(--text-dark);
+            padding: 22px 15px;
+            text-align: center;
+            font-family: var(--font-header);
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            background-color: var(--bg-pure);
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .didactic-item:hover {
+            transform: scale(1.04) rotate(1.5deg);
+            box-shadow: 4px 4px 0px var(--text-dark);
+        }
+
+        .didactic-item i {
+            font-size: 1.8rem;
+        }
+
+        /* Cajas de texto descriptivas limpias */
+        .info-box-text {
+            font-size: 1.05rem;
+            line-height: 1.6;
+            color: #18181b;
+            background-color: #fafafa;
+            border: 1px solid #e4e4e7;
+            padding: 30px;
+            margin-top: 20px;
+        }
+
+        .info-box-text p {
+            margin-bottom: 14px;
+        }
+
+        .info-box-text p:last-child {
+            margin-bottom: 0;
         }
 
         .display-placeholder {
             width: 100%;
-            padding-bottom: 60%;
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-light);
+            padding-bottom: 58%;
+            background-color: #fafafa;
+            border: 1px solid #e4e4e7;
             position: relative;
             overflow: hidden;
+            margin-top: 20px;
         }
 
         .display-placeholder img {
@@ -196,22 +267,35 @@
             object-fit: cover;
         }
 
-        .stream-card {
-            background-color: var(--text-dark);
-            color: var(--bg-clean);
-            padding: 40px;
-            border-radius: 4px;
+        /* --- CONCEPTO CONCEPTUAL --- */
+        .brand-meaning {
+            margin-top: 40px;
+            border-top: 1px solid #000;
+            padding-top: 25px;
+            max-width: 600px;
         }
 
-        .stream-card p {
-            color: #a1a1aa;
+        .brand-meaning h2 {
+            font-family: var(--font-header);
+            font-size: 1.3rem;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .brand-meaning p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
             line-height: 1.5;
         }
 
+        .brand-meaning p span {
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+
         @media (max-width: 900px) {
-            .brand-statement { font-size: 3.2rem; letter-spacing: -1px; }
-            .main-layout { grid-template-columns: 1fr; gap: 40px; }
-            .top-bar { flex-direction: column; gap: 20px; text-align: center; }
+            .workspace-layout { grid-template-columns: 1fr; gap: 40px; }
+            .social-top-right { position: relative; top: 0; right: 0; justify-content: center; margin-top: 20px; }
         }
     </style>
 </head>
@@ -219,65 +303,31 @@
 
     <div class="container">
         
-        <!-- BARRA SUPERIOR: LOGO Y REDES -->
-        <div class="top-bar">
-            <!-- Marcador de posición para tu logo -->
-            <div class="logo-box">DX</div>
+        <!-- CABECERA CON TU NUEVO LOGO -->
+        <header>
+            <img src="https://postimg.cc" alt="Dexta No Se Salvan" class="logo-image">
             
-            <div class="social-header-row">
-                <a href="https://instagram.com" target="_blank" class="social-link"><i class="fab fa-instagram"></i></a>
-                <a href="https://tiktok.com" target="_blank" class="social-link"><i class="fab fa-tiktok"></i></a>
-                <a href="https://kick.com" target="_blank" class="social-link"><i class="fa-solid fa-play"></i></a>
-                <a href="https://spotify.com" target="_blank" class="social-link"><i class="fab fa-spotify"></i></a>
+            <div class="social-top-right">
+                <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://tiktok.com" target="_blank"><i class="fab fa-tiktok"></i></a>
+                <a href="https://kick.com" target="_blank"><i class="fa-solid fa-play"></i></a>
+                <a href="https://spotify.com" target="_blank"><i class="fab fa-spotify"></i></a>
             </div>
-        </div>
+        </header>
 
-        <!-- IDENTIDAD E HISTORIA -->
-        
-            <h1 class="brand-statement">Dexta No Se Salvan</h1>
-            <div class="translation-sub">
-                A clever linguistic play on his real name, translating to: <span>"From this one, they won't escape."</span>
-            </div>
-        </div>
-
-        <!-- DISEÑO ASIMÉTRICO PRINCIPAL -->
-        <div class="main-layout">
+        <!-- ESPACIO DE TRABAJO DIDÁCTICO -->
+        <div class="workspace-layout">
             
-            <!-- COLUMNA IZQUIERDA -->
-            <div class="left-col">
-                
-                <!-- HOJA DE VIDA / NUBE DE TEXTO -->
-                <div class="block">
-                    <div class="section-heading">Professional Profile</div>
-                    <div class="resume-cloud">
-                        <p><strong>15-Year Veteran</strong> multi-genre music producer, audio engineer, and corporate sound designer delivering high-impact sonic assets worldwide.</p>
-                        <p>Expert in end-to-end studio operation: specializing in industry-standard <strong>Avid Pro Tools</strong> for complex vocal tracking, multi-track mixing, and stereo mastering.</p>
-                        <p>Advanced pipeline velocity utilizing <strong>FL Studio</strong> for live, real-time beat composition, melody toplining, and catalog arrangement under zero-latency conditions.</p>
+            <!-- COLUMNA IZQUIERDA: TU AVATAR -->
+            <div class="avatar-zone">
+                <div class="avatar-box">
+                    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: var(--text-muted); font-size: 0.9rem; text-align: center; padding: 20px;">
+                        [ Drop your Character Artwork or Studio PNG Photo here ]
                     </div>
                 </div>
-
-                <!-- SPOTIFY WORKSPACE -->
-                <div class="block">
-                    <div class="section-heading">Spotify Footprint & Music</div>
-                    <div class="media-vault">
-                        <!-- Aquí se incrustará tu reproductor oficial -->
-                        <iframe style="border-radius:0px; border: 1px solid var(--border-light);" src="https://spotify.com" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-                        
-                        <!-- Aquí irá la captura de tus 100k oyentes -->
-                        <div class="display-placeholder">
-                            <img src="https://unsplash.com" alt="Spotify Analytics Data">
-                        </div>
-                    </div>
-                </div>
-
+                <a href="https://spotify.com" target="_blank" class="listen-tag">Listen to my Beats</a>
             </div>
 
-            <!-- COLUMNA DERECHA -->
-            <div class="right-col">
-                
-                <!-- LOGROS PUBLICITARIOS -->
-                <div class="block">
-                    <div class="section-heading">Sync & Commercial Milestones</div>
-                    <div class="media-vault">
-                        <div class="display-placeholder">
-                            <img src="https://unsplash.com" alt="Palmolive Campaign Reference">
+            <!-- COLUMNA DERECHA: PANELES INTERACTIVOS -->
+            <div class="interactive-menu">
+                <div>
