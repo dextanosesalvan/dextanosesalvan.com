@@ -42,7 +42,7 @@
             padding: 0 24px;
         }
 
-        /* --- CABECERA PRINCIPAL CON TU LOGO REAL CENTRADO --- */
+        /* --- CABECERA PRINCIPAL CON TU LOGO CENTRADO --- */
         header {
             text-align: center;
             padding: 50px 0 20px 0;
@@ -50,7 +50,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            border-bottom: 1px solid #e4e4e7;
+            border-bottom: 2px solid var(--text-dark);
             margin-bottom: 35px;
         }
 
@@ -64,7 +64,7 @@
 
         .social-top-right {
             position: absolute;
-            top: 65px;
+            top: 75px;
             right: 0;
             display: flex;
             gap: 18px;
@@ -73,7 +73,7 @@
 
         .social-top-right a {
             color: var(--text-dark);
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             text-decoration: none;
             transition: opacity 0.2s, transform 0.2s;
         }
@@ -110,12 +110,6 @@
             border: 2px dashed var(--text-dark);
             position: relative;
             margin-bottom: 25px;
-        }
-
-        .avatar-box img {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            object-fit: contain;
         }
 
         .listen-tag {
@@ -301,7 +295,7 @@
 
     <div class="container">
         
-        <!-- CABECERA PRINCIPAL CON TU NUEVO LOGO REAL CENTRADO -->
+        <!-- CABECERA CON TU NUEVO LOGO REAL EN ALTA VELOCIDAD -->
         <header>
             <img src="https://postimg.cc" alt="Dexta No Se Salvan" class="logo-image">
             
@@ -329,3 +323,7 @@
             <!-- COLUMNA DERECHA: PANELES INTERACTIVOS INTERCAMBIABLES -->
             <div class="interactive-menu">
                 <div>
+                    <div class="menu-instruction">Select a Category & Explore Architecture</div>
+                    
+                    <!-- NAVEGACIÓN ENTRE PESTAÑAS (TABS) -->
+                    <div class="category-nav">
