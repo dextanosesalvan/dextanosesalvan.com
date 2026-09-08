@@ -1,157 +1,283 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dextano | Audio Architect & Producer</title>
-    <link href="https://googleapis.com" rel="stylesheet">
-    <link rel="stylesheet" href="https://cloudflare.com">
+    <title>Dexta No Se Salvan | Multi-Genre Audio Architect</title>
+    <!-- FUENTES PREMIUM MINIMALISTAS -->
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Syne:wght@700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- ICONOS CON CARGA SEGURA -->
+    <link rel="stylesheet" href="https://cloudflare.com" crossorigin="anonymous" />
+    
     <style>
         :root {
-            --bg-color: #050508;
-            --card-bg: rgba(12, 12, 20, 0.85);
-            --neon-cyan: #00f2fe;
-            --neon-pink: #ff007f;
-            --font-title: 'Syne', sans-serif;
-            --font-text: 'Plus Jakarta Sans', sans-serif;
+            --bg-clean: #ffffff;
+            --text-dark: #09090b;
+            --text-muted: #71717a;
+            --border-light: #e4e4e7;
+            --card-bg: #fafafa;
+            --font-display: 'Syne', sans-serif;
+            --font-body: 'Plus Jakarta Sans', sans-serif;
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
         body {
-            background-color: var(--bg-color);
-            color: #ffffff;
-            font-family: var(--font-text);
+            background-color: var(--bg-clean);
+            color: var(--text-dark);
+            font-family: var(--font-body);
             overflow-x: hidden;
-        }
-
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 80px 20px;
-            background: radial-gradient(circle at 50% 30%, rgba(0, 242, 254, 0.08), transparent 60%);
-        }
-
-        .logo {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, #fff, rgba(255,255,255,0.1));
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: var(--font-title);
-            font-weight: 800;
-            font-size: 1.8rem;
-            color: #000;
-            margin-bottom: 30px;
-            box-shadow: 0 0 30px rgba(0, 242, 254, 0.3);
-        }
-
-        h1 {
-            font-family: var(--font-title);
-            font-size: 5rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: -2px;
-            margin-bottom: 20px;
-            background: linear-gradient(180deg, #fff 50%, #666 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .tagline {
-            font-size: 1.25rem;
-            color: #94a3b8;
-            max-width: 700px;
-            line-height: 1.4;
-            margin-bottom: 40px;
-        }
-
-        .tagline span.cyan { color: var(--neon-cyan); font-weight: 600; }
-        .tagline span.pink { color: var(--neon-pink); font-weight: 600; }
-
-        .socials {
-            display: flex;
-            gap: 15px;
-            margin-bottom: 60px;
-        }
-
-        .s-btn {
-            width: 50px;
-            height: 50px;
-            border-radius: 14px;
-            background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(255,255,255,0.08);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #fff;
-            font-size: 1.2rem;
-            text-decoration: none;
-            transition: 0.3s;
-        }
-
-        .s-btn:hover {
-            border-color: var(--neon-cyan);
-            color: var(--neon-cyan);
-            transform: translateY(-4px);
+            -webkit-font-smoothing: antialiased;
         }
 
         .container {
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px 100px 20px;
+            padding: 0 24px;
         }
 
-        .section-title {
-            font-family: var(--font-title);
-            font-size: 2.2rem;
-            text-transform: uppercase;
-            margin-bottom: 30px;
+        /* --- SECCIÓN SUPERIOR: LOGO Y REDES --- */
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 40px 0;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        /* Aquí cargaremos tu imagen de logo después */
+        .logo-box {
+            width: 70px;
+            height: 70px;
+            border: 2px solid var(--text-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: 1.5rem;
             letter-spacing: -1px;
         }
 
-        .card {
-            background: var(--card-bg);
-            border: 1px solid rgba(255,255,255,0.05);
-            border-radius: 30px;
-            padding: 40px;
-            margin-bottom: 50px;
-            backdrop-filter: blur(10px);
+        .social-header-row {
+            display: flex;
+            gap: 16px;
         }
 
-        @media(max-width: 768px) {
-            h1 { font-size: 3rem; }
+        .social-link {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: 1px solid var(--border-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-dark);
+            font-size: 1.1rem;
+            text-decoration: none;
+            transition: all 0.25s ease;
+        }
+
+        .social-link:hover {
+            background-color: var(--text-dark);
+            color: var(--bg-clean);
+            border-color: var(--text-dark);
+            transform: translateY(-2px);
+        }
+
+        /* --- SECCIÓN DEL NOMBRE E HISTORIA --- */
+        .identity-section {
+            padding: 80px 0 60px 0;
+        }
+
+        .brand-statement {
+            font-family: var(--font-display);
+            font-size: 5rem;
+            font-weight: 800;
+            letter-spacing: -3px;
+            line-height: 0.9;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+        }
+
+        .translation-sub {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 500;
+            margin-bottom: 35px;
+        }
+
+        .translation-sub span {
+            color: var(--text-dark);
+            font-weight: 700;
+        }
+
+        /* --- ESTRUCTURA ASIMÉTRICA DE CONTENIDOS --- */
+        .main-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            padding-bottom: 120px;
+        }
+
+        /* Columna Izquierda */
+        .left-col {
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+        }
+
+        /* Columna Derecha */
+        .right-col {
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+        }
+
+        .section-heading {
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            text-transform: uppercase;
+            letter-spacing: -0.5px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--text-dark);
+            padding-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Nube de texto / Hoja de Vida */
+        .resume-cloud {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-light);
+            padding: 40px;
+            border-radius: 4px;
+            line-height: 1.6;
+            color: #27272a;
+            font-size: 1.05rem;
+        }
+
+        .resume-cloud p {
+            margin-bottom: 16px;
+        }
+
+        .resume-cloud strong {
+            color: var(--text-dark);
+        }
+
+        /* Espacio para Spotify e Imágenes */
+        .media-vault {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .display-placeholder {
+            width: 100%;
+            padding-bottom: 60%;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-light);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .display-placeholder img {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            object-fit: cover;
+        }
+
+        .stream-card {
+            background-color: var(--text-dark);
+            color: var(--bg-clean);
+            padding: 40px;
+            border-radius: 4px;
+        }
+
+        .stream-card p {
+            color: #a1a1aa;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 900px) {
+            .brand-statement { font-size: 3.2rem; letter-spacing: -1px; }
+            .main-layout { grid-template-columns: 1fr; gap: 40px; }
+            .top-bar { flex-direction: column; gap: 20px; text-align: center; }
         }
     </style>
 </head>
 <body>
 
-    <div class="hero">
-        <div class="logo">DX</div>
-        <h1>DEXTANO</h1>
-        <p class="tagline">
-            15 Years Architecting Hits. Industry-standard <span class="cyan">Pro Tools</span> mixing and elite <span class="pink">FL Studio</span> live performance workflow.
-        </p>
-        <div class="socials">
-            <a href="https://instagram.com" target="_blank" class="s-btn"><i class="fab fa-instagram"></i></a>
-            <a href="https://tiktok.com" target="_blank" class="s-btn"><i class="fab fa-tiktok"></i></a>
-            <a href="https://kick.com" target="_blank" class="s-btn"><i class="fa-solid fa-play"></i></a>
-            <a href="https://spotify.com" target="_blank" class="s-btn"><i class="fab fa-spotify"></i></a>
-        </div>
-    </div>
-
     <div class="container">
-        <div class="section-title">Audio Deployment</div>
-        <div class="card">
-            <iframe style="border-radius:20px" src="https://spotify.com" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        
+        <!-- BARRA SUPERIOR: LOGO Y REDES -->
+        <div class="top-bar">
+            <!-- Marcador de posición para tu logo -->
+            <div class="logo-box">DX</div>
+            
+            <div class="social-header-row">
+                <a href="https://instagram.com" target="_blank" class="social-link"><i class="fab fa-instagram"></i></a>
+                <a href="https://tiktok.com" target="_blank" class="social-link"><i class="fab fa-tiktok"></i></a>
+                <a href="https://kick.com" target="_blank" class="social-link"><i class="fa-solid fa-play"></i></a>
+                <a href="https://spotify.com" target="_blank" class="social-link"><i class="fab fa-spotify"></i></a>
+            </div>
         </div>
-    </div>
 
-</body>
-</html>
+        <!-- IDENTIDAD E HISTORIA -->
+        
+            <h1 class="brand-statement">Dexta No Se Salvan</h1>
+            <div class="translation-sub">
+                A clever linguistic play on his real name, translating to: <span>"From this one, they won't escape."</span>
+            </div>
+        </div>
+
+        <!-- DISEÑO ASIMÉTRICO PRINCIPAL -->
+        <div class="main-layout">
+            
+            <!-- COLUMNA IZQUIERDA -->
+            <div class="left-col">
+                
+                <!-- HOJA DE VIDA / NUBE DE TEXTO -->
+                <div class="block">
+                    <div class="section-heading">Professional Profile</div>
+                    <div class="resume-cloud">
+                        <p><strong>15-Year Veteran</strong> multi-genre music producer, audio engineer, and corporate sound designer delivering high-impact sonic assets worldwide.</p>
+                        <p>Expert in end-to-end studio operation: specializing in industry-standard <strong>Avid Pro Tools</strong> for complex vocal tracking, multi-track mixing, and stereo mastering.</p>
+                        <p>Advanced pipeline velocity utilizing <strong>FL Studio</strong> for live, real-time beat composition, melody toplining, and catalog arrangement under zero-latency conditions.</p>
+                    </div>
+                </div>
+
+                <!-- SPOTIFY WORKSPACE -->
+                <div class="block">
+                    <div class="section-heading">Spotify Footprint & Music</div>
+                    <div class="media-vault">
+                        <!-- Aquí se incrustará tu reproductor oficial -->
+                        <iframe style="border-radius:0px; border: 1px solid var(--border-light);" src="https://spotify.com" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                        
+                        <!-- Aquí irá la captura de tus 100k oyentes -->
+                        <div class="display-placeholder">
+                            <img src="https://unsplash.com" alt="Spotify Analytics Data">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- COLUMNA DERECHA -->
+            <div class="right-col">
+                
+                <!-- LOGROS PUBLICITARIOS -->
+                <div class="block">
+                    <div class="section-heading">Sync & Commercial Milestones</div>
+                    <div class="media-vault">
+                        <div class="display-placeholder">
+                            <img src="https://unsplash.com" alt="Palmolive Campaign Reference">
