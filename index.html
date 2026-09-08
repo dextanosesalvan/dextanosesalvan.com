@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DEXTANO | Audio Architect Portfolio</title>
+    <title>DEXTA NO SE SALVAN | Audio Architect Portfolio</title>
     <!-- FUENTES PREMIUM ESTILO PHARRELL / STREETWEAR -->
     <link rel="preconnect" href="https://googleapis.com">
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
     <link href="https://googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- ICONOS CON CARGA SEGURA REFORZADA -->
+    <!-- ICONOS CON CARGA SEGURA -->
     <link rel="stylesheet" href="https://cloudflare.com" crossorigin="anonymous" />
     
     <style>
@@ -42,7 +42,7 @@
             padding: 0 24px;
         }
 
-        /* --- CABECERA ESTILO PHARRELL CON TU LOGO CENTRADO --- */
+        /* --- CABECERA PRINCIPAL CON TU LOGO REAL CENTRADO --- */
         header {
             text-align: center;
             padding: 50px 0 20px 0;
@@ -50,25 +50,16 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            border-bottom: 2px solid var(--text-dark);
-            margin-bottom: 40px;
+            border-bottom: 1px solid #e4e4e7;
+            margin-bottom: 35px;
         }
 
-        .logo-text-styled {
-            font-family: var(--font-header);
-            font-size: 2.8rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: -1px;
-            line-height: 1;
+        .logo-image {
+            width: 100%;
+            max-width: 290px;
+            height: auto;
+            object-fit: contain;
             margin-bottom: 15px;
-            border: 3px solid var(--text-dark);
-            padding: 10px 25px;
-            display: inline-block;
-            background-color: var(--text-dark);
-            color: var(--bg-pure);
-            transform: rotate(-1deg);
-            box-shadow: 4px 4px 0px rgba(0,0,0,0.15);
         }
 
         .social-top-right {
@@ -82,7 +73,7 @@
 
         .social-top-right a {
             color: var(--text-dark);
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             text-decoration: none;
             transition: opacity 0.2s, transform 0.2s;
         }
@@ -298,9 +289,9 @@
 
     <div class="container">
         
-        <!-- CABECERA PRINCIPAL CON TU TITULO ESTILO GRAFFITI CALLEJERO / BOX LOGO -->
+        <!-- CABECERA PRINCIPAL CON TU NUEVO LOGO REAL CENTRADO -->
         <header>
-            <div class="logo-text-styled">Dexta No Se Salvan</div>
+            <img src="https://postimg.cc" alt="Dexta No Se Salvan" class="logo-image">
             
             <div class="social-top-right">
                 <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
@@ -326,3 +317,8 @@
             <!-- COLUMNA DERECHA: PANELES INTERACTIVOS INTERCAMBIABLES -->
             <div class="interactive-menu">
                 <div>
+                    <div class="menu-instruction">Select a Category & Explore Architecture</div>
+                    
+                    <!-- NAVEGACIÓN ENTRE PESTAÑAS (TABS) -->
+                    <div class="category-nav">
+                        <button class="cat-btn active" onclick="openPharrellTab(event, 'profile')">Profile</button>
