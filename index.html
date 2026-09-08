@@ -112,6 +112,12 @@
             margin-bottom: 25px;
         }
 
+        .avatar-box img {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            object-fit: contain;
+        }
+
         .listen-tag {
             font-family: var(--font-header);
             font-size: 1rem;
@@ -252,6 +258,12 @@
             margin-top: 25px;
         }
 
+        .display-placeholder img {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            object-fit: cover;
+        }
+
         /* --- SECCIÓN CONCEPTO --- */
         .brand-meaning {
             margin-top: 40px;
@@ -317,8 +329,3 @@
             <!-- COLUMNA DERECHA: PANELES INTERACTIVOS INTERCAMBIABLES -->
             <div class="interactive-menu">
                 <div>
-                    <div class="menu-instruction">Select a Category & Explore Architecture</div>
-                    
-                    <!-- NAVEGACIÓN ENTRE PESTAÑAS (TABS) -->
-                    <div class="category-nav">
-                        <button class="cat-btn active" onclick="openPharrellTab(event, 'profile')">Profile</button>
